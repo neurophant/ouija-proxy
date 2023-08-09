@@ -1,5 +1,5 @@
-cd /var/www/ouija-proxy/
+cd /var/ouija-proxy/
 source .env/bin/activate
-source ../ouija-proxy.sh
+source ../tuning/ouija-proxy.sh
 
 python server.py

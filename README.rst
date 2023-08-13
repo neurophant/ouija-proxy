@@ -66,7 +66,8 @@ Setup - Ubuntu
     sudo apt-get install supervisor
 
     mkdir ouija-tuning
-    touch ouija-tuning/ouija-proxy.sh - **place your env variables here**
+    # place your env variables here
+    touch ouija-tuning/ouija-proxy.sh
 
     git clone https://github.com/neurophant/ouija-proxy.git
     cd ouija-proxy

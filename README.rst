@@ -30,6 +30,8 @@ Environment variables
 * OUIJA_UDP_CAPACITY: UDP send/receive buffer capacity - max packet count
 * OUIJA_UDP_RESEND_SLEEP: UDP resend sleep between retries, seconds
 
+ouija-tuning/ouija-proxy.sh:
+
 .. code-block:: bash
 
     export OUIJA_DEBUG="1"
@@ -62,6 +64,9 @@ Setup - Ubuntu
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt install python3.11
     sudo apt-get install supervisor
+
+    mkdir ouija-tuning
+    touch ouija-tuning/ouija-proxy.sh - **place your env variables here**
 
     git clone https://github.com/neurophant/ouija-proxy.git
     cd ouija-proxy

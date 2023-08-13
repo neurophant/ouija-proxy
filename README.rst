@@ -34,8 +34,8 @@ ouija-tuning/ouija-proxy.sh:
 
 .. code-block:: bash
 
-    export OUIJA_DEBUG="1"
-    export OUIJA_MONITOR="1"
+    export OUIJA_DEBUG="0"
+    export OUIJA_MONITOR="0"
     export OUIJA_PROXY_HOST="127.0.0.1"
     export OUIJA_PROXY_PORT="50000"
     export OUIJA_KEY="bdDmN4VexpDvTrs6gw8xTzaFvIBobFg1Cx2McFB1RmI="

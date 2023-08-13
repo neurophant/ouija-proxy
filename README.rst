@@ -3,6 +3,8 @@ Ouija proxy
 
 Ouija TCP proxy server with UDP interface built on top of `Ouija <https://github.com/neurophant/ouija>`_ library
 
+Works in pair with `ouija-relay <https://github.com/neurophant/ouija-relay>`_
+
 Features
 --------
 

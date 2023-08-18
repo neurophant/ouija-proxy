@@ -28,18 +28,9 @@ async def main() -> None:
             proxy = StreamProxy(
                 telemetry=StreamTelemetry(),
                 tuning=tuning,
+                proxy_host=settings.PROXY_HOST,
+                proxy_port=settings.PROXY_PORT,
             )
-
-            if settings.MONITOR:
-                asyncio.create_task(proxy.debug())
-
-            server = await asyncio.start_server(
-                proxy.serve,
-                settings.PROXY_HOST,
-                settings.PROXY_PORT,
-            )
-            async with server:
-                await server.serve_forever()
         case Protocol.UDP:
             tuning = DatagramTuning(
                 fernet=settings.fernet,
@@ -59,13 +50,13 @@ async def main() -> None:
                 proxy_host=settings.PROXY_HOST,
                 proxy_port=settings.PROXY_PORT,
             )
-
-            if settings.MONITOR:
-                asyncio.create_task(proxy.debug())
-
-            await proxy.serve()
         case _:
             raise NotImplementedError
+
+    if settings.MONITOR:
+        asyncio.create_task(proxy.debug())
+
+    await proxy.serve()
 
 
 if __name__ == '__main__':

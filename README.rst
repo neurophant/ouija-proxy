@@ -1,22 +1,23 @@
 Ouija proxy
 ===========
 
-Ouija TCP proxy server with UDP interface built on top of `Ouija <https://github.com/neurophant/ouija>`_ library
+TCP proxy server with TCP and UDP interfaces built on top of `Ouija <https://github.com/neurophant/ouija>`_ library
 
 Works in pair with `ouija-relay <https://github.com/neurophant/ouija-relay>`_
 
 Features
 --------
 
-Hides TCP traffic in encrypted UDP traffic between relay and proxy servers
+Hides TCP traffic in encrypted TCP/UDP traffic between relay and proxy servers
 
 .. image:: https://raw.githubusercontent.com/neurophant/ouija-proxy/main/ouija.png
-    :alt: UDP tunneling
+    :alt: TCP/UDP tunneling
     :width: 800
 
 Environment variables
 ---------------------
 
+* OUIJA_PROTOCOL: TCP or UDP
 * OUIJA_DEBUG: 0 - error logging, 1 - debug logging
 * OUIJA_MONITOR: 0 - monitor off, 1 - monitor on
 * OUIJA_PROXY_HOST: ouija proxy host/ip addr
@@ -26,6 +27,7 @@ Environment variables
 * OUIJA_SERVING_TIMEOUT: timeout for serve/resend workers, 2X for handlers, seconds
 * OUIJA_TCP_BUFFER: TCP buffer size, bytes
 * OUIJA_TCP_TIMEOUT: TCP awaiting timeout, seconds
+* OUIJA_MESSAGE_TIMEOUT: TCP service message timeout, seconds
 * OUIJA_UDP_PAYLOAD: UDP payload size, bytes
 * OUIJA_UDP_TIMEOUT: UDP awaiting timeout, seconds
 * OUIJA_UDP_RETRIES: UDP max retry count per interaction
@@ -36,6 +38,7 @@ ouija-tuning/ouija-proxy.sh:
 
 .. code-block:: bash
 
+    export OUIJA_PROTOCOL="UDP"
     export OUIJA_DEBUG="0"
     export OUIJA_MONITOR="0"
     export OUIJA_PROXY_HOST="127.0.0.1"
@@ -45,6 +48,7 @@ ouija-tuning/ouija-proxy.sh:
     export OUIJA_SERVING_TIMEOUT="30.0"
     export OUIJA_TCP_BUFFER="1024"
     export OUIJA_TCP_TIMEOUT="1.0"
+    export OUIJA_MESSAGE_TIMEOUT="5.0"
     export OUIJA_UDP_PAYLOAD="1024"
     export OUIJA_UDP_TIMEOUT="3.0"
     export OUIJA_UDP_RETRIES="5"
